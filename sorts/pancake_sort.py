@@ -12,7 +12,7 @@ python pancake_sort.py
 from collections.abc import Sequence
 
 
-def pancake_sort[T](arr: Sequence[T]) -> list[T]:
+def pancake_sort(arr: Sequence) -> list:
     """Sort Array with Pancake Sort.
 
     :param arr: Collection containing comparable items
