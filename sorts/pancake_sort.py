@@ -1,4 +1,4 @@
-# sorts/pancake_sort.py   
+# sorts/pancake_sort.py
 """
 This is a pure Python implementation of the pancake sort algorithm
 For doctests run following command:
@@ -10,12 +10,9 @@ python pancake_sort.py
 """
 
 from collections.abc import Sequence
-from typing import TypeVar
-
-T = TypeVar("T")
 
 
-def pancake_sort(arr: Sequence[T]) -> list[T]:
+def pancake_sort[T](arr: Sequence[T]) -> list[T]:
     """Sort Array with Pancake Sort.
 
     :param arr: Collection containing comparable items
@@ -34,12 +31,13 @@ def pancake_sort(arr: Sequence[T]) -> list[T]:
     Time Complexity: O(n^2)
     Space Complexity: O(n)
     """
+    arr = list(arr)
     cur = len(arr)
 
     while cur > 1:
         # Find the maximum item in the unsorted portion.
         maximum = max(arr[:cur])
-        mi = arr.index(maximum)
+        mi = arr.index(maximum, 0, cur)
 
         # Move the maximum item to the front.
         arr = arr[mi::-1] + arr[mi + 1 :]
@@ -49,7 +47,7 @@ def pancake_sort(arr: Sequence[T]) -> list[T]:
 
         cur -= 1
 
-    return list(arr)
+    return arr
 
 
 if __name__ == "__main__":
@@ -60,4 +58,3 @@ if __name__ == "__main__":
     user_input = input("Enter numbers separated by a comma:\n").strip()
     unsorted = [int(item) for item in user_input.split(",")]
     print(f"{pancake_sort(unsorted) = }")
-
